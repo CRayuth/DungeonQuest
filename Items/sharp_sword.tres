@@ -13,5 +13,5 @@ script = ExtResource("2_6vh7i")
 name = "Master Knife"
 description = "Knife that can double the damage."
 texture = SubResource("AtlasTexture_6vh7i")
-cost = 500
+cost = 50
 metadata/_custom_type_script = "uid://dow70bw5bkxq7"
