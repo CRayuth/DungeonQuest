@@ -86,8 +86,9 @@ func animDirection() -> String:
 func _take_damage(_hurt_box : HurtBox) -> void:
 	if invulnerable == true:
 		return
-		
-	hp -= _hurt_box.damage
+	
+	# Apply player damage multiplier (e.g. x2 when sword upgrade is active)
+	hp -= int(_hurt_box.damage * PlayerStats.damage_multiplier)
 	update_hp_bar()
 	
 	enemy_damaged.emit(_hurt_box)

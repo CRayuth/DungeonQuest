@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LevelManager="*res://00_Globals/GlobalLevelManager.gd"
 PlayerHud="*res://GUI/player_hud/player_hud.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
+PlayerStats="*res://00_Globals/player_stats.gd"
 SaveManager="*res://00_Globals/global_save_manager.gd"
 PauseMenu="*res://GUI/pause_game/pause_menu.tscn"
 
