@@ -94,4 +94,4 @@ The game features a dynamic combat system where players can:
 ![Enemy](/markdownDes/enemyL2.jpg)
 ![System](/markdownDes/System.jpg)
 ![Quest](/markdownDes/Quest.jpg)
-![Boss](/markdownDes/Boss.jpg)
+![Boss](/markdownDes/boss.jpg)
