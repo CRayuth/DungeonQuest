@@ -137,4 +137,3 @@ func purchase_item(item: ItemData) -> void:
 			else:
 				# If item couldn't be added, refund the gems
 				PlayerManager.INVENTORY_DATA.add_item(gem_item, item.cost)
-
