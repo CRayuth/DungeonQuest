@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6g5ghyfrerha"]
+
+[ext_resource type="Script" uid="uid://c4kc8gpg3nh7t" path="res://Enemy/Scripts/enemy_vision_area.gd" id="1_wq411"]
+
+[node name="VisionArea" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_wq411")

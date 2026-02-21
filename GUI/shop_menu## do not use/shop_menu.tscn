@@ -1,0 +1,199 @@
+[gd_scene load_steps=8 format=3 uid="uid://blvbp550vy4h1"]
+
+[ext_resource type="Texture2D" uid="uid://8lwlq22330eg" path="res://Items/sprites/Inventory.png" id="1_b3iil"]
+[ext_resource type="Script" uid="uid://cleojsqj718ms" path="res://GUI/shop_menu## do not use/scripts/shop_menu.gd" id="1_lv53b"]
+[ext_resource type="PackedScene" uid="uid://dhbo3mih1vdcl" path="res://GUI/shop_menu## do not use/shop_item_button.tscn" id="2_mswg8"]
+[ext_resource type="Texture2D" uid="uid://dng1g204evbin" path="res://Items/sprites/demo_spritesheet.png" id="3_dt4po"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv53b"]
+atlas = ExtResource("3_dt4po")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0q3b"]
+atlas = ExtResource("1_b3iil")
+region = Rect2(8, 0, 96, 104)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mswg8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_t0q3b")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="ShopMenu" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_lv53b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.007843138, 0.05490196, 0.18431373)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 10.0
+offset_right = 439.0
+offset_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lv53b")
+stretch_mode = 3
+
+[node name="GemsLabel" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 85.0
+offset_right = 477.0
+offset_bottom = 211.0
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ShopItemContainer" type="VBoxContainer" parent="Control/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ShopItemButton" parent="Control/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("2_mswg8")]
+layout_mode = 2
+
+[node name="ShopItemButton2" parent="Control/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("2_mswg8")]
+layout_mode = 2
+
+[node name="ShopItemButton3" parent="Control/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("2_mswg8")]
+layout_mode = 2
+
+[node name="ShopItemButton4" parent="Control/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("2_mswg8")]
+layout_mode = 2
+
+[node name="DetailPanel" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 76.0
+offset_right = 224.0
+offset_bottom = 223.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mswg8")
+
+[node name="Control" type="Control" parent="Control/DetailPanel"]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="Control/DetailPanel/Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+texture = SubResource("AtlasTexture_lv53b")
+stretch_mode = 3
+
+[node name="ItemName" type="Label" parent="Control/DetailPanel/Control"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 42.0
+offset_right = 107.0
+offset_bottom = 65.0
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="Control/DetailPanel/Control"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 3.0
+offset_right = 191.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 12
+text = "Price"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="Label" parent="Control/DetailPanel/Control"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 18.0
+offset_right = 178.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 12
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDescription" type="Label" parent="Control/DetailPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 179.0
+offset_bottom = 82.0
+text = "example of description"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 5
+
+[node name="ItemHeldCount" type="Label" parent="Control/DetailPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 153.0
+offset_top = 45.0
+offset_right = 178.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.325
+anchor_top = 6.0870004
+anchor_right = 1.325
+anchor_bottom = 6.0870004
+offset_left = -25.0
+offset_top = -15.480011
+offset_right = 25.0
+offset_bottom = 15.519989
+text = "Close"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = 0.076000005
+anchor_right = 0.157
+anchor_bottom = 0.076000005
+offset_left = -46.36
+offset_top = -11.52
+offset_right = 46.64
+offset_bottom = 11.48
+text = "Shopkeeper"

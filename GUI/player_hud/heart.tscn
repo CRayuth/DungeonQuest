@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://n4r5jq2e4oxi"]
+
+[ext_resource type="Texture2D" uid="uid://dwbw7i7hja0s" path="res://GUI/player_hud/Health_04_Heart_Red.png" id="1_0y58v"]
+[ext_resource type="Script" uid="uid://b6laeua8f58r3" path="res://GUI/player_hud/heart_gui.gd" id="1_ephgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ephgk"]
+atlas = ExtResource("1_0y58v")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rub4d"]
+atlas = ExtResource("1_0y58v")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yey4"]
+atlas = ExtResource("1_0y58v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rub4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ephgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rub4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yey4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heart" type="Control"]
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ephgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rub4d")
+centered = false

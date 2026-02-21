@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://cih5scpd4keat"]
+
+[ext_resource type="Script" uid="uid://dow70bw5bkxq7" path="res://Items/scripts/item_data.gd" id="1_hw0jr"]
+[ext_resource type="Script" uid="uid://2a2cqdq7rb7b" path="res://Items/item_effects/item_effect.gd" id="1_pw2eo"]
+[ext_resource type="Texture2D" uid="uid://boj7sfm1c5ojl" path="res://Items/sprites/FREE Potions Assets Pack - 32x32 - 03.png" id="2_5vqjr"]
+[ext_resource type="Script" uid="uid://bxsl8v2kf0355" path="res://Items/item_effects/item_effect_heal.gd" id="2_eu55q"]
+
+[sub_resource type="Resource" id="Resource_pw2eo"]
+script = ExtResource("2_eu55q")
+metadata/_custom_type_script = "uid://bxsl8v2kf0355"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8xv6"]
+atlas = ExtResource("2_5vqjr")
+region = Rect2(64, 128, 32, 32)
+
+[resource]
+script = ExtResource("1_hw0jr")
+name = "Potion"
+description = "Pyat pul ngob bro that potion."
+texture = SubResource("AtlasTexture_t8xv6")
+cost = 10
+effects = Array[ExtResource("1_pw2eo")]([SubResource("Resource_pw2eo")])
+metadata/_custom_type_script = "uid://dow70bw5bkxq7"

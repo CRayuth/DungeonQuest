@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhbo3mih1vdcl"]
+
+[ext_resource type="Texture2D" uid="uid://dng1g204evbin" path="res://Items/sprites/demo_spritesheet.png" id="1_bfbb1"]
+[ext_resource type="Script" uid="uid://y8wdr2qp6uft" path="res://GUI/shop_menu## do not use/shop_item_button.gd" id="1_w3oah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5unjq"]
+atlas = ExtResource("1_bfbb1")
+region = Rect2(32, 32, 32, 32)
+
+[node name="ShopItemButton" type="Button"]
+custom_minimum_size = Vector2(220, 36)
+script = ExtResource("1_w3oah")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 35.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_5unjq")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 6.0
+offset_right = 163.0
+offset_bottom = 29.0
+text = "Label for the item"
+text_overrun_behavior = 5
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 6.0
+offset_right = 199.0
+offset_bottom = 29.0
+text = "999"

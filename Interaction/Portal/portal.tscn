@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6c0gsuvl7myv"]
+
+[ext_resource type="Texture2D" uid="uid://15ruy253uxot" path="res://Interaction/Portal/sprite-sheet.png" id="1_in5w5"]
+[ext_resource type="Script" uid="uid://ck0kfourtlkwh" path="res://Interaction/Portal/portal.gd" id="1_pqwax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqwax"]
+radius = 18.027756
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk4ax"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64cgm"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3532"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnn1p"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dii2g"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnm8e"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5jbu"]
+atlas = ExtResource("1_in5w5")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yq1d6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk4ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64cgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3532")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnn1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dii2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnm8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5jbu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_pqwax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pqwax")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yq1d6")
+frame_progress = 0.9275269
+
+[node name="PromptLabel" type="Label" parent="."]
+visible = false
+offset_left = -59.0
+offset_top = -45.0
+offset_right = 73.0
+offset_bottom = -22.0
+text = "Press 'F' to Enter"

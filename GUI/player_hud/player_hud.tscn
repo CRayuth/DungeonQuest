@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnv200l58hp22"]
+
+[ext_resource type="Script" uid="uid://t857kv8gt7gb" path="res://GUI/player_hud/player_hud.gd" id="1_oghrr"]
+[ext_resource type="Script" uid="uid://dmj4lt2uh0ucd" path="res://GUI/player_hud/hp_gui.gd" id="2_alx7a"]
+[ext_resource type="Script" uid="uid://owmg6x1wk6hb" path="res://GUI/player_hud/stamina_gui.gd" id="3_4b3j6"]
+[ext_resource type="AudioStream" uid="uid://bxlbd1u8beqsj" path="res://background_audio.mp3" id="3_oghrr"]
+[ext_resource type="AudioStream" uid="uid://btoydbb6hhg8t" path="res://Enemy/Boss/Audio/john_evil-evil-boss-theme-431859.mp3" id="3_yhjvm"]
+[ext_resource type="AudioStream" uid="uid://bgs2khvcupxkr" path="res://Enemy/Boss/Audio/Victory Sound Effect - Der Test.mp3" id="4_sysqg"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_oghrr")
+normal_music = ExtResource("3_oghrr")
+boss_music = ExtResource("3_yhjvm")
+victory_music = ExtResource("4_sysqg")
+
+[node name="HpBar" type="ProgressBar" parent="."]
+modulate = Color(1.353256, 0, 0, 0.99607843)
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 122.0
+offset_bottom = 25.0
+show_percentage = false
+script = ExtResource("2_alx7a")
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+modulate = Color(0.5888088, 0.7353372, 0, 0.99607843)
+offset_left = 8.0
+offset_top = 29.0
+offset_right = 68.0
+offset_bottom = 34.0
+show_percentage = false
+script = ExtResource("3_4b3j6")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oghrr")
+volume_db = -15.0

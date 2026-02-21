@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c5uitdjnc081b"]
+
+[ext_resource type="Script" uid="uid://dow70bw5bkxq7" path="res://Items/scripts/item_data.gd" id="1_5ujwg"]
+[ext_resource type="Script" uid="uid://2a2cqdq7rb7b" path="res://Items/item_effects/item_effect.gd" id="1_yq8b3"]
+[ext_resource type="Texture2D" uid="uid://dng1g204evbin" path="res://Items/sprites/demo_spritesheet.png" id="2_kvxp5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq8b3"]
+atlas = ExtResource("2_kvxp5")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_5ujwg")
+name = "Gem"
+description = "GEM NG huh all bro"
+texture = SubResource("AtlasTexture_yq8b3")
+metadata/_custom_type_script = "uid://dow70bw5bkxq7"

@@ -1,0 +1,377 @@
+[gd_scene load_steps=17 format=3 uid="uid://cu50rao0dcfl6"]
+
+[ext_resource type="Script" uid="uid://crg8xdjsplpl7" path="res://GUI/pause_game/pause_menu.gd" id="1_md7eq"]
+[ext_resource type="Texture2D" uid="uid://8lwlq22330eg" path="res://Items/sprites/Inventory.png" id="2_cb2r4"]
+[ext_resource type="Script" uid="uid://c042mmc6hiwst" path="res://GUI/pause_game/inventory/scripts/inventory_ui.gd" id="3_4e23k"]
+[ext_resource type="PackedScene" uid="uid://bi2l0lh5ovpy6" path="res://GUI/pause_game/inventory/inventory_slot.tscn" id="3_cb2r4"]
+[ext_resource type="Resource" uid="uid://1edgpnuldbai" path="res://GUI/pause_game/inventory/player_inventory.tres" id="4_btr1n"]
+[ext_resource type="Texture2D" uid="uid://dng1g204evbin" path="res://Items/sprites/demo_spritesheet.png" id="6_lbk77"]
+[ext_resource type="Script" uid="uid://dow70bw5bkxq7" path="res://Items/scripts/item_data.gd" id="7_2taeh"]
+[ext_resource type="PackedScene" uid="uid://dhbo3mih1vdcl" path="res://GUI/shop_menu## do not use/shop_item_button.tscn" id="7_v6gog"]
+[ext_resource type="Resource" uid="uid://cih5scpd4keat" path="res://Items/potion.tres" id="8_4xt2e"]
+[ext_resource type="Script" uid="uid://d2fytq1nixhsw" path="res://GUI/pause_game/shopinventory.gd" id="8_v6gog"]
+[ext_resource type="Resource" uid="uid://bwgi0psbv6lql" path="res://Items/sharp_sword.tres" id="9_4xt2e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btr1n"]
+atlas = ExtResource("2_cb2r4")
+region = Rect2(8, 0, 96, 104)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_btr1n"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_btr1n")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eifqp"]
+atlas = ExtResource("6_lbk77")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e23k"]
+atlas = ExtResource("2_cb2r4")
+region = Rect2(8, 0, 96, 104)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2taeh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_4e23k")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_md7eq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.015686275, 0.007843138, 0.05490196, 0.18431373)
+
+[node name="MessageLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.9)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 16
+text = "Purchase message"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Inventory" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65300006
+anchor_right = 0.5
+anchor_bottom = 0.65300006
+offset_left = -98.0
+offset_top = -60.067017
+offset_right = 98.0
+offset_bottom = 59.932983
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_btr1n")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_4e23k")
+data = ExtResource("4_btr1n")
+
+[node name="InventorySlot" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_cb2r4")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_cb2r4")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_cb2r4")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_cb2r4")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_cb2r4")]
+layout_mode = 2
+
+[node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.19000001
+anchor_right = 0.508
+anchor_bottom = 0.19000001
+offset_left = -97.84001
+offset_top = -21.410004
+offset_right = 98.15996
+offset_bottom = 21.589996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "Gem here is use to buy the 
+items and stuff"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopMenu" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+script = ExtResource("8_v6gog")
+shop_inventory = Array[ExtResource("7_2taeh")]([ExtResource("8_4xt2e"), ExtResource("9_4xt2e")])
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/ShopMenu"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 10.0
+offset_right = 439.0
+offset_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/ShopMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/ShopMenu/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_eifqp")
+stretch_mode = 3
+
+[node name="GemsLabel" type="Label" parent="Control/TabContainer/ShopMenu/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TabContainer/ShopMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -63.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/TabContainer/ShopMenu/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="ShopItemContainer" type="VBoxContainer" parent="Control/TabContainer/ShopMenu/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ShopItemButton" parent="Control/TabContainer/ShopMenu/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("7_v6gog")]
+layout_mode = 2
+
+[node name="ShopItemButton2" parent="Control/TabContainer/ShopMenu/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("7_v6gog")]
+layout_mode = 2
+
+[node name="ShopItemButton3" parent="Control/TabContainer/ShopMenu/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("7_v6gog")]
+layout_mode = 2
+
+[node name="ShopItemButton4" parent="Control/TabContainer/ShopMenu/ScrollContainer/MarginContainer/ShopItemContainer" instance=ExtResource("7_v6gog")]
+layout_mode = 2
+
+[node name="DetailPanel" type="PanelContainer" parent="Control/TabContainer/ShopMenu"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 36.0
+offset_right = 225.0
+offset_bottom = 185.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2taeh")
+
+[node name="Control" type="Control" parent="Control/TabContainer/ShopMenu/DetailPanel"]
+layout_mode = 2
+
+[node name="ItemImage" type="TextureRect" parent="Control/TabContainer/ShopMenu/DetailPanel/Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+texture = SubResource("AtlasTexture_eifqp")
+stretch_mode = 3
+
+[node name="ItemName" type="Label" parent="Control/TabContainer/ShopMenu/DetailPanel/Control"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 42.0
+offset_right = 107.0
+offset_bottom = 65.0
+text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/ShopMenu/DetailPanel/Control"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 3.0
+offset_right = 191.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 12
+text = "Purchase Price"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemPrice" type="Label" parent="Control/TabContainer/ShopMenu/DetailPanel/Control"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 18.0
+offset_right = 178.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 12
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDescribtion" type="Label" parent="Control/TabContainer/ShopMenu/DetailPanel/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 179.0
+offset_bottom = 82.0
+text = "example of describtion"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 5
+
+[node name="CloseButton" type="Button" parent="Control/TabContainer/ShopMenu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.325
+anchor_top = 6.0870004
+anchor_right = 1.325
+anchor_bottom = 6.0870004
+offset_left = -25.0
+offset_top = -15.480011
+offset_right = 25.0
+offset_bottom = 15.519989
+text = "Close"
+
+[node name="Button" type="Button" parent="Control/TabContainer/ShopMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77900004
+anchor_top = 0.90200007
+anchor_right = 0.77900004
+anchor_bottom = 0.90200007
+offset_left = -39.920013
+offset_top = -15.578018
+offset_right = 40.079987
+offset_bottom = 15.421982
+grow_horizontal = 0
+grow_vertical = 0
+text = "Purchase"
+
+[node name="Quest" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="QuestLabel" type="Label" parent="Control/TabContainer/Quest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -89.5
+offset_right = 237.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "Level 1: 
+- kill 10 slime
+
+Level 2: 
+- kill 5 skeleton and 5 goblin 
+
+Level 3: BOSS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="System" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/System"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -50.5
+offset_right = 56.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_save" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Button_load" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[node name="Button_quit" type="Button" parent="Control/TabContainer/System/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnv200l58hp22"]
+
+[ext_resource type="Script" uid="uid://t857kv8gt7gb" path="res://GUI/player_hud/player_hud.gd" id="1_oghrr"]
+[ext_resource type="Script" uid="uid://dmj4lt2uh0ucd" path="res://GUI/player_hud/hp_gui.gd" id="2_alx7a"]
+[ext_resource type="AudioStream" uid="uid://bxlbd1u8beqsj" path="res://background_audio.mp3" id="3_oghrr"]
+
+[node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_oghrr")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1.353256, 0, 0, 0.99607843)
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 122.0
+offset_bottom = 25.0
+show_percentage = false
+script = ExtResource("2_alx7a")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oghrr")
+volume_db = -10.0

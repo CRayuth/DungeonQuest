@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyItemDrop" load_steps=3 format=3 uid="uid://gemdrop12345"]
+
+[ext_resource type="Script" uid="uid://c4jd24fhm3sqi" path="res://Enemy/Scripts/enemy_item_drop.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://c5uitdjnc081b" path="res://Items/gem.tres" id="2_gem"]
+
+[resource]
+script = ExtResource("1_script")
+item = ExtResource("2_gem")
+max_amount = 3

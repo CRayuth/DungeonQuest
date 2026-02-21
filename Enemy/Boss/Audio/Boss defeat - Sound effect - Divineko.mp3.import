@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b562nekwsu8hl"
+path="res://.godot/imported/Boss defeat - Sound effect - Divineko.mp3-979fb9b72e1f079574df45c69222bdae.mp3str"
+
+[deps]
+
+source_file="res://Enemy/Boss/Audio/Boss defeat - Sound effect - Divineko.mp3"
+dest_files=["res://.godot/imported/Boss defeat - Sound effect - Divineko.mp3-979fb9b72e1f079574df45c69222bdae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://bwgi0psbv6lql"]
+
+[ext_resource type="Script" uid="uid://2a2cqdq7rb7b" path="res://Items/item_effects/item_effect.gd" id="1_qa67q"]
+[ext_resource type="Script" uid="uid://dow70bw5bkxq7" path="res://Items/scripts/item_data.gd" id="2_6vh7i"]
+[ext_resource type="Texture2D" uid="uid://brme1p70y3j3x" path="res://Items/sprites/Sheet.png" id="3_qa67q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vh7i"]
+atlas = ExtResource("3_qa67q")
+region = Rect2(96, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_6vh7i")
+name = "Master Knife"
+description = "Knife that can double the damage."
+texture = SubResource("AtlasTexture_6vh7i")
+cost = 500
+metadata/_custom_type_script = "uid://dow70bw5bkxq7"
