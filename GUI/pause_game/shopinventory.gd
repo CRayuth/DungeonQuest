@@ -129,9 +129,12 @@ func purchase_item(item: ItemData) -> void:
 		# Remove gems and add purchased item
 		if PlayerManager.INVENTORY_DATA.use_item(gem_item, item.cost):
 			if PlayerManager.INVENTORY_DATA.add_item(item, 1):
+				# Trigger item effects immediately on purchase (e.g. sword upgrade -> x2 damage)
+				item.use()
 				# Update all UI elements
 				update_gems_display()
 				update_inventory_display()
 			else:
 				# If item couldn't be added, refund the gems
 				PlayerManager.INVENTORY_DATA.add_item(gem_item, item.cost)
+
