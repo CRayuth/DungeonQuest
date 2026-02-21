@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnv200l58hp22"]
+[gd_scene load_steps=8 format=3 uid="uid://dnv200l58hp22"]
 
 [ext_resource type="Script" uid="uid://t857kv8gt7gb" path="res://GUI/player_hud/player_hud.gd" id="1_oghrr"]
 [ext_resource type="Script" uid="uid://dmj4lt2uh0ucd" path="res://GUI/player_hud/hp_gui.gd" id="2_alx7a"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bxlbd1u8beqsj" path="res://background_audio.mp3" id="3_oghrr"]
 [ext_resource type="AudioStream" uid="uid://btoydbb6hhg8t" path="res://Enemy/Boss/Audio/john_evil-evil-boss-theme-431859.mp3" id="3_yhjvm"]
 [ext_resource type="AudioStream" uid="uid://bgs2khvcupxkr" path="res://Enemy/Boss/Audio/Victory Sound Effect - Der Test.mp3" id="4_sysqg"]
+[ext_resource type="Script" path="res://GUI/player_hud/hotbar.gd" id="5_hotbar"]
 
 [node name="PlayerHud" type="CanvasLayer"]
 script = ExtResource("1_oghrr")
@@ -34,3 +35,17 @@ script = ExtResource("3_4b3j6")
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_oghrr")
 volume_db = -15.0
+
+[node name="Hotbar" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -36.0
+offset_right = 84.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_hotbar")
